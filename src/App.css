@@ -1,0 +1,32 @@
+#root {
+  max-width: 75vw;
+  height: 100vw;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border: 2px red solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personal {
+  align-self: flex-start;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+.personal > :first-child {
+  grid-column: 1 / -1;
+  width: 100%;
+  border: green solid 1px;
+}
+
+.personal :nth-child(2) {
+  grid-template-columns: 1 / 2;
+}
+.personal :nth-child(3) {
+  grid-template-columns: 2 / 3;
+}
