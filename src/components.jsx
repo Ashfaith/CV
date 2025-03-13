@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-function TextEditor({ section, index }) {
-  const [input, setInput] = useState({ inputText: `Enter your ${section}` });
+function TextEditor({ placeHolder, index }) {
+  const [input, setInput] = useState({ inputText: `${placeHolder}` });
   const handleInputChange = (e) => {
     const newInput = { ...input, inputText: e.target.value };
     setInput(newInput);
@@ -20,7 +20,7 @@ function TextEditor({ section, index }) {
       <div>
         {isInput ? (
           <input
-            key={section}
+            key={placeHolder}
             type="text"
             onChange={handleInputChange}
             value={input.inputText}

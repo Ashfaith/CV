@@ -2,27 +2,29 @@ import TextEditor from "./components";
 import "./App.css";
 
 function App() {
-  const personalInfo = ["name", "phone number", "email"];
+  const personalInfo = [
+    { section: "name", placeHolder: "Peter Griffin" },
+    { section: "phone-number", placeHolder: "0085 412 789" },
+    { section: "email", placeHolder: "yourcv@cvtemplate.io" },
+  ];
   const experience = ["work experience", "education"];
-  const stringToId = (string) => {
-    return string
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "");
-  };
 
   return (
     <>
       <div className="personal">
         {personalInfo.map((info, index) => (
-          <div key={index} id={stringToId(info)}>
-            <TextEditor section={info} index={index} />
+          <div key={index} id={info.section}>
+            <TextEditor
+              section={info.section}
+              placeHolder={info.placeHolder}
+              index={index}
+            />
           </div>
         ))}
       </div>
       <div className="experience">
         {experience.map((exp, index) => (
-          <div key={index} id={stringToId(exp)}>
+          <div key={index} id={exp}>
             <TextEditor section={exp} index={index} />
           </div>
         ))}
