@@ -1,5 +1,6 @@
 import TextEditor from "./components";
 import "./App.css";
+import { educationTemplate, workExperienceTemplate } from "./text.js";
 
 function App() {
   const personalInfo = [
@@ -7,7 +8,10 @@ function App() {
     { section: "phone-number", placeHolder: "0085 412 789" },
     { section: "email", placeHolder: "yourcv@cvtemplate.io" },
   ];
-  const experience = ["work experience", "education"];
+  const experience = [
+    { section: "work-experience", placeHolder: workExperienceTemplate },
+    { section: "education", placeHolder: educationTemplate },
+  ];
 
   return (
     <>
@@ -24,8 +28,12 @@ function App() {
       </div>
       <div className="experience">
         {experience.map((exp, index) => (
-          <div key={index} id={exp}>
-            <TextEditor section={exp} index={index} />
+          <div key={index} id={exp.section}>
+            <TextEditor
+              section={exp.section}
+              index={index}
+              placeHolder={exp.placeHolder}
+            />
           </div>
         ))}
       </div>

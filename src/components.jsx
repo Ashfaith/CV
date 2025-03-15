@@ -17,18 +17,17 @@ function TextEditor({ placeHolder, index }) {
 
   return (
     <>
-      <div>
-        {isInput ? (
-          <input
-            key={placeHolder}
-            type="text"
-            onChange={handleInputChange}
-            value={input.inputText}
-          ></input>
-        ) : (
-          <div>{input.inputText}</div>
-        )}
-      </div>
+      {isInput ? (
+        <textarea
+          key={placeHolder}
+          type="text"
+          onChange={handleInputChange}
+          value={input.inputText}
+          className="input-text"
+        ></textarea>
+      ) : (
+        <div className="text">{input.inputText}</div>
+      )}
       <button key={index} type="button" onClick={handleButtonChange}>
         {buttonType}
       </button>
