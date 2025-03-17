@@ -172,3 +172,8 @@ textarea.input-text {
   background-color: #373737;
   transition: background-color 1s ease;
 }
+
+.experience-heading {
+  margin-bottom: 0;
+  align-self: start;
+}

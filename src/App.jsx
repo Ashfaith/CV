@@ -13,6 +13,17 @@ function App() {
     { section: "education", placeHolder: educationTemplate },
   ];
 
+  const formatSectionName = (sectionName) => {
+    return sectionName
+      .split("-")
+      .map((word, index) => {
+        return index === 0
+          ? word.charAt(0).toUpperCase() + word.slice(1)
+          : word;
+      })
+      .join(" ");
+  };
+
   return (
     <>
       <div className="personal">
@@ -28,13 +39,18 @@ function App() {
       </div>
       <div className="experience">
         {experience.map((exp, index) => (
-          <div key={index} id={exp.section}>
-            <TextEditor
-              section={exp.section}
-              index={index}
-              placeHolder={exp.placeHolder}
-            />
-          </div>
+          <>
+            <h2 className="experience-heading">
+              {formatSectionName(exp.section)}
+            </h2>
+            <div key={index} id={exp.section}>
+              <TextEditor
+                section={exp.section}
+                index={index}
+                placeHolder={exp.placeHolder}
+              />
+            </div>
+          </>
         ))}
       </div>
     </>
